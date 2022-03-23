@@ -1,0 +1,74 @@
+<div>
+    <table class="table" mat-table [dataSource]="pessoas">
+
+        <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome</th>
+            <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="sobrenome">
+            <th mat-header-cell *matHeaderCellDef> Sobrenome</th>
+            <td mat-cell *matCellDef="let row"> {{row.sobrenome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef> CPF</th>
+            <td mat-cell *matCellDef="let row"> {{row.cpf | mask:'000.000.000-00'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cnpj">
+            <th mat-header-cell *matHeaderCellDef> CNPJ</th>
+            <td mat-cell *matCellDef="let row"> {{row.cnpj | mask:'00.000.000/0000-00'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cep">
+            <th mat-header-cell *matHeaderCellDef> CEP</th>
+            <td mat-cell *matCellDef="let row"> {{row.cep}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="logradouro">
+            <th mat-header-cell *matHeaderCellDef> Logradouro</th>
+            <td mat-cell *matCellDef="let row"> {{row.logradouro}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="complemento">
+            <th mat-header-cell *matHeaderCellDef> Complemento</th>
+            <td mat-cell *matCellDef="let row"> {{row.complemento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bairro">
+            <th mat-header-cell *matHeaderCellDef> Bairro</th>
+            <td mat-cell *matCellDef="let row"> {{row.bairro}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="localidade">
+            <th mat-header-cell *matHeaderCellDef> Localidade</th>
+            <td mat-cell *matCellDef="let row"> {{row.localidade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="uf">
+            <th mat-header-cell *matHeaderCellDef> UF</th>
+            <td mat-cell *matCellDef="let row"> {{row.uf}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="acoes">
+            <th class="mat-header" mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let row">
+                <a class="edit" routerLink="update/{{ row.id }}">
+                    <i class="material-icons">edit</i>
+                </a>
+                <a class="delete" routerLink="delete/ {{ row.id }}">
+                    <i class="material-icons">delete</i>
+                </a>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <form>
+        <button mat-button color="primary" routerLink="/">Adicionar novo contato</button>
+    </form>
+</div>

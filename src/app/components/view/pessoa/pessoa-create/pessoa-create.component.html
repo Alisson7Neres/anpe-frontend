@@ -1,0 +1,57 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Anpe Tecnologia</mat-label>
+    <input matInput disabled value="">
+
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput [formControl]="nome" required [(ngModel)]="pessoaModel.nome" type="text" name="nome">
+          <mat-error *ngIf="nome.invalid">{{ getMessage("nome") }}</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Sobrenome</mat-label>
+          <input matInput [formControl]="sobrenome" required [(ngModel)]="pessoaModel.sobrenome" name="sobrenome">
+          <mat-error *ngIf="sobrenome.invalid">{{ getMessage("sobrenome") }}</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>CPF</mat-label>
+          <input matInput [(ngModel)]="pessoaModel.cpf" name="cpf" [mask]="getCpfMask()">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>CNPJ</mat-label>
+          <input matInput [(ngModel)]="pessoaModel.cnpj" name="cnpj" [mask]="getCnpjMask()">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>CEP</mat-label>
+      <input matInput [formControl]="cep" required [(ngModel)]="pessoaModel.cep" name="cep" placeholder="Ex. 01001-000"
+        [mask]="getCepMask()">
+      <mat-error *ngIf="cep.invalid">{{ getMessage("cep") }}</mat-error>
+    </mat-form-field>
+  </p>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="create()">Cadastrar</button>
+    <button mat-raised-button color="primary" routerLink="contatos">Contatos</button>
+  </div>
+</form>

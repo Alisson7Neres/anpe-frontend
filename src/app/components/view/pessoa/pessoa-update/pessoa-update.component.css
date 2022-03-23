@@ -1,0 +1,15 @@
+form {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button{
+    margin: 10px;
+}
+
+mat-form-field {
+    padding: 10px;
+}
